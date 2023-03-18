@@ -6,7 +6,7 @@ class States_manager:
     def __init__(self, clock, surface):
         self.running = True
         self.states = ["start", "running", "paused", "dead"]
-        self.state = self.states[1]
+        self.state = self.states[0]
 
         self.groups_manager = groups_manager.Groups_manager()
         # self.events = pygame.event.get()
@@ -58,14 +58,12 @@ class States_manager:
 
     def events(self, events):
 
-
-        # print(events)
+        self.groups_manager.events(events)
         for event in events:
             if event.type == pygame.KEYDOWN:
                 keys = pygame.key.get_pressed()
                 #used to kill outside loop
-                if event.key == pygame.K_q:
-                    return True
+                
 
                 if event.key == pygame.K_p:
                     if self.state == "paused":
@@ -77,4 +75,3 @@ class States_manager:
                 if event.key == 32:#SPACE
                     if self.state == "start":
                         self.state = "running"
-                    # updates the bomb group when you set a bomb

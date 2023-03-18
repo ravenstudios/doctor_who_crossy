@@ -8,19 +8,20 @@ class K9(main_entity.Main_entity):
 
     """
     def __init__(self, x, y):
-        super().__init__(x, y)
+        self.color = (0, 255, 0)
+        super().__init__(x, y, 1)
+
 
 
 
 
     def update(self):
-        self.move()
+        self.image.fill(self.color)
+        # self.move()
         # self.animate()
 
 
-    def move(self):
-
-        events = pygame.event.get()
+    def events(self, events):
         for event in events:
             if event.type == pygame.KEYUP:
 

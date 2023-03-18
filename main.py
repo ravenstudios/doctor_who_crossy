@@ -5,7 +5,6 @@ import sys, pygame, states_manager
 
 
 
-
 def main():
     pygame.init()
 

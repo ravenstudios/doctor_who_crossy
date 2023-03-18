@@ -7,16 +7,16 @@ class Main_entity(pygame.sprite.Sprite):
         # TODO:
 
     """
-    def __init__(self, x, y):
+    def __init__(self, x, y, width):
         super().__init__()
-        self.width = BLOCK_SIZE
+        self.width = BLOCK_SIZE * width
         self.height = BLOCK_SIZE
-
+        self.color = (255, 255, 255)
         # self.spritesheet = pygame.image.load(SPRITESHEET).convert()
         # self.y_sprite_sheet_index = y_sprite_sheet_index
 
-        self.image = pygame.Surface((BLOCK_SIZE, BLOCK_SIZE))
-        self.image.fill((255, 0, 255))
+        self.image = pygame.Surface((self.width, self.height))
+        self.image.fill(self.color)
         # self.image = self.get_image_from_sprite_sheet(0, self.y_sprite_sheet_index)
         self.rect = pygame.Rect(self.image.get_rect())
         self.rect.topleft = (x * BLOCK_SIZE, y * BLOCK_SIZE)
@@ -32,6 +32,9 @@ class Main_entity(pygame.sprite.Sprite):
     def update(self):
         pass
         # self.animate()
+
+    def events(events):
+        pass
 
 
     # def get_image_from_sprite_sheet(self, row, col):
