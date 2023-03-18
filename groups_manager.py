@@ -7,7 +7,7 @@ class Groups_manager:
         pass
         self.player_group = pygame.sprite.GroupSingle()
         self.cars_group = pygame.sprite.Group()
-        self.cars_group.add(cars.Cars(13, 5, 2))
+        self.make_cars()
         self.player = k9.K9(COLS // 2, ROWS - 1)
         self.player_group.add(self.player)
 
@@ -43,6 +43,17 @@ class Groups_manager:
 
     def events(self, events):
         self.player.events(events)
+
+
+    def make_cars(self):
+        for i in range(5):
+            for j in range(4):
+                if i % 2 != 0:
+                    self.cars_group.add(cars.Cars(j * BLOCK_SIZE, 12 - i, 1, 0))
+
+                else:
+                    # print(j * -(GAME_WIDTH // 8))
+                    self.cars_group.add(cars.Cars(j * BLOCK_SIZE , 12 - i, 1, 1))
 
     # def get_group(self, search):
     #     return self.main_group[search]

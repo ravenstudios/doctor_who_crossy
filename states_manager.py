@@ -6,7 +6,7 @@ class States_manager:
     def __init__(self, clock, surface):
         self.running = True
         self.states = ["start", "running", "paused", "dead"]
-        self.state = self.states[0]
+        self.state = self.states[1]
 
         self.groups_manager = groups_manager.Groups_manager()
         # self.events = pygame.event.get()
@@ -63,7 +63,7 @@ class States_manager:
             if event.type == pygame.KEYDOWN:
                 keys = pygame.key.get_pressed()
                 #used to kill outside loop
-                
+
 
                 if event.key == pygame.K_p:
                     if self.state == "paused":
